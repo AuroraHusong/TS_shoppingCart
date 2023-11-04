@@ -1,0 +1,27 @@
+[
+    {
+        "id":1,
+        "name": "apple watch",
+        "price": 250.99,
+        "imgUrl": "/imgs/apple_watch.jpg"
+    },
+    {
+        "id":2,
+        "name": "dell",
+        "price": 850.99,
+        "imgUrl": "/imgs/dell.jpg"
+    },
+    {
+        "id":3,
+        "name": "vr headset",
+        "price": 600.99,
+        "imgUrl": "/imgs/vr.jpg"
+    },
+    {
+        "id":4,
+        "name": "macbook",
+        "price": 1000.99,
+        "imgUrl": "/imgs/macbook.jpg"
+    }
+]
+
