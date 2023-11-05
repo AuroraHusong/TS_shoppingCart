@@ -1,5 +1,6 @@
 import { useState, ReactNode, createContext, useContext } from "react";
 import { ShoppingCart } from "../components/ShoppingCart.tsx";
+import { useLocalStorage } from "../hooks/useLocalStorage.ts"
 
 type ShoppingCartProviderProps = {
     children: ReactNode
@@ -27,7 +28,7 @@ export function useShoppingCart() {
 }
 
 export function ShoppingCartProvider({ children }:ShoppingCartProviderProps) {
-    const [cartItems, setCartItems] = useState<CartItem[]>([])
+    const [cartItems, setCartItems] = useLocalStorage<CartItem[]>("shopping-cart", [])
     const [isOpen, setIsOpen] = useState(false)
 
     //get the total number of a certain item function
