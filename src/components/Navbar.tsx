@@ -8,9 +8,6 @@ return (
         <Container className="me-auto">
             <Nav>
                 <Nav.Link to="/" as={NavLink}>
-                    Home
-                </Nav.Link>
-                <Nav.Link to="/store" as={NavLink}>
                     Store
                 </Nav.Link>
                 <Nav.Link to="/about" as={NavLink}>
