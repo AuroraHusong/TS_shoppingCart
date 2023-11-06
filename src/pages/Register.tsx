@@ -72,71 +72,110 @@ export function Register(){
       <h1 className="text-center mb-4 display-4">Register</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label htmlFor="username" className="form-label">Username:</label>
-          <input
-            className="form-control"
-            type="text"
-            id="username"
-            ref={userRef}
-            autoComplete="off"
-            onChange={(e) => setUser(e.target.value)}
-            required
-            aria-invalid={validName ? "false" : true}
-            aria-describedby="uidnote"
-            onFocus={() => setUserFocus(true)}
-            onBlur={() => setUserFocus(false)}
-          />
-          <p id="uidnote" className={userFocus && user && !validName ? "instructions form-text text-muted" : "visually-hidden d-none"}>
+            
+                <label htmlFor="username" className="m-2">
+                    Username: 
+                </label>
+                <span className={validName ? "valid m-2 text-success" : "visually-hidden"}>
+                     <FontAwesomeIcon icon={faCheck} />
+                </span>
+                <span className={validName || !user ? "visually-hidden" : "invalid m-2 text-danger"}>
+                     <FontAwesomeIcon icon={faTimes} />
+                </span>
+                <input className="form-control mb-3"
+                    type="text"
+                    id="username"
+                    ref={userRef}
+                    autoComplete="off"
+                    onChange={(e)=> setUser(e.target.value)}
+                    required
+                    aria-invalid={validName ? "false" : true}
+                    aria-describedby="uidnote"
+                    onFocus={() => setUserFocus(true)}
+                    onBlur={() => setUserFocus(false)}
+                />
+               
+               <p id="uidnote" className={userFocus && user && !validName ? "instructions form-text text-muted" : "visually-hidden d-none"}>
             <FontAwesomeIcon icon={faInfoCircle} /> 7 to 24 characters. Must begin with a letter. Letters, numbers, underscores, and hyphens allowed.
           </p>
         </div>
-        <div className="mb-3">
-          <label htmlFor="password" className="form-label">Password:</label>
-          <input
-            className="form-control"
-            type="password"
-            id="password"
-            onChange={(e) => setPwd(e.target.value)}
-            required
-            aria-invalid={validPwd ? "false" : true}
-            aria-describedby="pwdnote"
-            onFocus={() => setPwdFocus(true)}
-            onBlur={() => setPwdFocus(false)}
-          />
-          <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions form-text text-muted" : "visually-hidden d-none"}>
-            <FontAwesomeIcon icon={faInfoCircle} /> 8 to 24 characters. Must include uppercase and lowercase letters, a number, and a special character. Letters, numbers, underscores, and hyphens allowed. Allowed special characters: <span aria-label="exclamation mark">!</span><span aria-label="at symbol">@</span><span aria-label="hashtag">#</span><span aria-label="percent">%</span>
-          </p>
-        </div>
-        <div className="mb-3">
-          <label htmlFor="confirm_pwd" className="form-label">Confirm Password:</label>
-          <input
-            className="form-control"
-            type="password"
-            id="confirm_pwd"
-            onChange={(e) => setMatchPwd(e.target.value)}
-            required
-            aria-invalid={validMatch ? "false" : true}
-            aria-describedby="confirmnote"
-            onFocus={() => setMatchFocus(true)}
-            onBlur={() => setMatchFocus(false)}
-          />
-          <p id="confirmNote" className={matchFocus && !validMatch ? "instructions form-text text-muted" : "visually-hidden d-none"}>
-            <FontAwesomeIcon icon={faInfoCircle} /> Needs to match the above password
-          </p>
-        </div>
-        <button className="btn btn-primary btn-lg btn-block mt-3" disabled={!validName || !validPwd || !validMatch ? true : false}>
-          Sign Up
-        </button>
-      </form>
-      <p className="mt-3">
-        Already registered?<br />
-        <span className="line">
-          <a href="#">Sign In</a>
-        </span>
-      </p>
-    </Card.Body>
-  </Card>
-</Container>
-</section>
+                <div className="row">
+                <div className="col mb-4">
+                <label htmlFor="password" className="m-2">
+                    Password:
+                
+                </label>
+                <span className={validPwd ? "valid m-2" : "visually-hidden text-success"}>
+                    <FontAwesomeIcon icon={faCheck} /> 
+                </span>
+                <span className={validPwd || !pwd ? "visually-hidden" : "invalid m-2 text-danger"}>
+                    <FontAwesomeIcon icon={faTimes} />
+                </span>
+                <input
+                    className="form-control mb-3"
+                    type="password"
+                    id="password"
+                    onChange={(e)=> setPwd(e.target.value)}
+                    required
+                    aria-invalid={validPwd ? "false" : true}
+                    aria-describedby="pwdnote"
+                    onFocus={() => setPwdFocus(true)}
+                    onBlur={() => setPwdFocus(false)}
+                />
+                
+                <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions form-text text-muted" : "visually-hidden d-none"}>
+                        <FontAwesomeIcon icon={faInfoCircle} /> {" "}
+                        8 to 24 characters.<br />
+                        Must include uppercase and lowercase letters, a number, and a special character.<br />
+                        Letters, numbers, underscores, and hyphens allowed.<br />
+                        Allowed special characters: 
+                        <span aria-label="exclamation mark">!</span>
+                        <span aria-label="at symbol">@</span>
+                        <span aria-label="hashtag">#</span>
+                        <span aria-label="percent">%</span>
+                </p>
+            </div>
+            </div>
+
+                <label htmlFor="confirm_pwd" className="m-2">
+                    Confirm Password:
+                </label>
+                <span className={validMatch && matchPwd ? "valid m-2" : "visually-hidden text-success"}>
+                    <FontAwesomeIcon icon={faCheck} /> 
+                </span>
+                <span className={validMatch || !matchPwd ? "visually-hidden" : "invalid m-2 text-danger"}>
+                    <FontAwesomeIcon icon={faTimes} />
+                </span>
+                <input
+                    className="form-control mb-3"
+                    type="password"
+                    id="confirm_pwd"
+                    onChange={(e)=> setMatchPwd(e.target.value)}
+                    required
+                    aria-invalid={validMatch ? "false" : true}
+                    aria-describedby="confirmnote"
+                    onFocus={() => setMatchFocus(true)}
+                    onBlur={() => setMatchFocus(false)}
+                />
+                
+                <p id="confirmNote" className={matchFocus && !validMatch ? "instructions form-text text-muted" : "visually-hidden d-none"}>
+                        <FontAwesomeIcon icon={faInfoCircle} /> {" "}
+                        Needs to match the above password
+                </p>
+
+                    <button className="btn btn-primary btn-lg btn-block mt-3 mb-3"disabled={!validName || !validPwd || !validMatch ? true : false}>
+                        Sign Up
+                    </button>
+            </form>
+            <p>
+                Already registered?<br />
+                <span className="line">
+                    <a href="#">Sign In</a>
+                </span>
+            </p>
+            </Card.Body>
+            </Card>
+            </Container>
+        </section>
     )
 }
