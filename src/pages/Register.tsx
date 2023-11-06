@@ -75,6 +75,12 @@ export function Register(){
                 <label htmlFor="username" className="m-2">
                     Username: 
                 </label>
+                <span className={validName ? "valid m-2 text-success" : "visually-hidden"}>
+                     <FontAwesomeIcon icon={faCheck} />
+                </span>
+                <span className={validName || !user ? "visually-hidden" : "invalid m-2 text-danger"}>
+                     <FontAwesomeIcon icon={faTimes} />
+                </span>
                 <input className="form-control mb-3"
                     type="text"
                     id="username"
@@ -87,12 +93,7 @@ export function Register(){
                     onFocus={() => setUserFocus(true)}
                     onBlur={() => setUserFocus(false)}
                 />
-                <span className={validName ? "valid m-2 text-success" : "visually-hidden"}>
-                     <FontAwesomeIcon icon={faCheck} />
-                </span>
-                <span className={validName || !user ? "visually-hidden" : "invalid m-2 text-danger"}>
-                     <FontAwesomeIcon icon={faTimes} />
-                </span>
+               
                 <p id="uidnote" className={userFocus && user && !validName ? "instructions form-text text-muted" : "visually-hidden d-none"}>
                         <FontAwesomeIcon icon={faInfoCircle} />{" "}
                         7 to 24 characters.<br />
@@ -105,6 +106,12 @@ export function Register(){
                     Password:
                 
                 </label>
+                <span className={validPwd ? "valid m-2" : "visually-hidden text-success"}>
+                    <FontAwesomeIcon icon={faCheck} /> 
+                </span>
+                <span className={validPwd || !pwd ? "visually-hidden" : "invalid m-2 text-danger"}>
+                    <FontAwesomeIcon icon={faTimes} />
+                </span>
                 <input
                     className="form-control mb-3"
                     type="password"
@@ -116,12 +123,6 @@ export function Register(){
                     onFocus={() => setPwdFocus(true)}
                     onBlur={() => setPwdFocus(false)}
                 />
-                <span className={validPwd ? "valid m-2" : "visually-hidden text-success"}>
-                    <FontAwesomeIcon icon={faCheck} /> 
-                </span>
-                <span className={validPwd || !pwd ? "visually-hidden" : "invalid m-2 text-danger"}>
-                    <FontAwesomeIcon icon={faTimes} />
-                </span>
                 
                 <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions form-text text-muted" : "visually-hidden d-none"}>
                         <FontAwesomeIcon icon={faInfoCircle} /> {" "}
@@ -139,8 +140,13 @@ export function Register(){
 
                 <label htmlFor="confirm_pwd" className="m-2">
                     Confirm Password:
-                
                 </label>
+                <span className={validMatch && matchPwd ? "valid m-2" : "visually-hidden text-success"}>
+                    <FontAwesomeIcon icon={faCheck} /> 
+                </span>
+                <span className={validMatch || !matchPwd ? "visually-hidden" : "invalid m-2 text-danger"}>
+                    <FontAwesomeIcon icon={faTimes} />
+                </span>
                 <input
                     className="form-control mb-3"
                     type="password"
@@ -152,12 +158,6 @@ export function Register(){
                     onFocus={() => setMatchFocus(true)}
                     onBlur={() => setMatchFocus(false)}
                 />
-                <span className={validMatch && matchPwd ? "valid m-2" : "visually-hidden text-success"}>
-                    <FontAwesomeIcon icon={faCheck} /> 
-                </span>
-                <span className={validMatch || !matchPwd ? "visually-hidden" : "invalid m-2 text-danger"}>
-                    <FontAwesomeIcon icon={faTimes} />
-                </span>
                 
                 <p id="confirmNote" className={matchFocus && !validMatch ? "instructions form-text text-muted" : "visually-hidden d-none"}>
                         <FontAwesomeIcon icon={faInfoCircle} /> {" "}
