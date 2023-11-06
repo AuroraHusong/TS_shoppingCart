@@ -7,7 +7,7 @@ return (
     <NavbarBs sticky="top" className="bg-white shadow-sm mb-3">
         <Container className="me-auto">
             <Nav>
-                <Nav.Link to="/" as={NavLink}>
+                <Nav.Link to="/store" as={NavLink}>
                     Store
                 </Nav.Link>
                 <Nav.Link to="/about" as={NavLink}>

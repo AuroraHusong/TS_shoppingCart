@@ -4,7 +4,7 @@ import { Store } from './pages/Store'
 import { About } from './pages/About'
 import { Navbar }from './components/Navbar'
 import { ShoppingCartProvider } from "./context/ShoppingCartContext"
-
+import { Register } from './pages/Register'
 
 function App() {
   return (
@@ -12,7 +12,8 @@ function App() {
     <Navbar />
     <Container className="mb-4">
       <Routes>
-        <Route path="/" element ={<Store />} />
+        <Route path="/store" element ={<Store />} />
+        <Route path="/" element ={<Register />} />
         <Route path="/about" element ={<About />} />
       </Routes>
     </Container>
