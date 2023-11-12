@@ -1,12 +1,10 @@
-import {SyntheticEvent, useState, useRef, useEffect } from 'react';
+import {SyntheticEvent, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Card } from 'react-bootstrap';
 
 const Login = () => {
     const history = useNavigate();
     const userRef = useRef<HTMLInputElement>(null);
-    const [user, setUser] = useState('');
-    const [pwd, setPwd] = useState('');
 
     useEffect(() => {
         if (userRef.current) {
@@ -35,7 +33,7 @@ const Login = () => {
                                     id="username"
                                     ref={userRef}
                                     autoComplete="off"
-                                    onChange={(e)=> setUser(e.target.value)}
+                                    
                                     required
                                 />
                                 <label htmlFor="password" className="m-2">
@@ -45,7 +43,7 @@ const Login = () => {
                                     type="password"
                                     id="password"
                                     autoComplete="off"
-                                    onChange={(e)=> setPwd(e.target.value)}
+                                    
                                     required
                                 />
                                 <button type="submit" className="btn btn-primary mt-3">
