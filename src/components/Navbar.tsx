@@ -16,7 +16,7 @@ return (
                 </Nav.Link>
             </Nav>
             {location.pathname === '/Store' && (
-          <h2 className="ms-auto me-3 fs-md-4 fs-5">Welcome {user ? user.charAt(0).toUpperCase() + user.slice(1).toLowerCase() : ''}!</h2>
+          <h2 className="ms-auto me-3 fs-md-4 fs-5">Welcome {user ? user.charAt(0).toUpperCase() + user.slice(1).toLowerCase() : 'User'}!</h2>
         )}
             <Button onClick={openCart}
              variant="outline-secondary"

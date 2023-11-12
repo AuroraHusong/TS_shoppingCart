@@ -3,7 +3,8 @@ import { ShoppingCart } from "../components/ShoppingCart.tsx";
 import { useLocalStorage } from "../hooks/useLocalStorage.ts"
 
 type ShoppingCartProviderProps = {
-    children: ReactNode
+    children: ReactNode;
+    user: string;
 }
 type ShoppingCartContext = {
     openCart: () => void
@@ -27,7 +28,7 @@ export function useShoppingCart() {
     return useContext(ShoppingCartContext)
 }
 
-export function ShoppingCartProvider({ children }:ShoppingCartProviderProps) {
+export function ShoppingCartProvider({ children, user }:ShoppingCartProviderProps) {
     const [cartItems, setCartItems] = useLocalStorage<CartItem[]>("shopping-cart", [])
     const [isOpen, setIsOpen] = useState(false)
 
@@ -98,6 +99,6 @@ export function ShoppingCartProvider({ children }:ShoppingCartProviderProps) {
     }}>
 
 {children}
-<ShoppingCart isOpen={isOpen}/>
+<ShoppingCart user={user} isOpen={isOpen}/>
 </ShoppingCartContext.Provider>
 )}

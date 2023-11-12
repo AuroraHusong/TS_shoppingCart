@@ -10,7 +10,7 @@ import Login from './pages/Login'
 function App() {
   const [user, setUser] = useState<string>('')
   return (
-    <ShoppingCartProvider>
+    <ShoppingCartProvider user={user}>
     <Navbar user={user} />
     <Container className="mb-4">
       <Routes>

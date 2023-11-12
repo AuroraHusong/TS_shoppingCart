@@ -7,14 +7,15 @@ import storeItems from "../data/items.json"
 
 type ShoppingCartProps = {
     isOpen: boolean
+    user: string
 }
-export function ShoppingCart({isOpen}: ShoppingCartProps){
+export function ShoppingCart({isOpen, user}: ShoppingCartProps){
     const {closeCart, cartItems} = useShoppingCart()
     return (
     <Offcanvas show={isOpen} onHide= {closeCart} placement ="end">
         <Offcanvas.Header closeButton>
             <Offcanvas.Title>
-                Cart
+                {user ? user.charAt(0).toUpperCase() + user.slice(1).toLowerCase() : 'User'}'s Cart
             </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
