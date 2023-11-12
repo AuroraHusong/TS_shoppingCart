@@ -2,6 +2,7 @@ import { Container, Nav, Button, Navbar as NavbarBs } from "react-bootstrap"
 import { NavLink, useLocation } from "react-router-dom"
 import { useShoppingCart } from "../context/ShoppingCartContext"
 export function Navbar({user}: {user: string}) {
+    const location = useLocation();
     const { openCart, cartQuantity } = useShoppingCart()
 return (
     <NavbarBs sticky="top" className="bg-white shadow-sm mb-3">
