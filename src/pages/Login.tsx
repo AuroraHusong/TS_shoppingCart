@@ -2,7 +2,11 @@ import {SyntheticEvent, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Card } from 'react-bootstrap';
 
-const Login = () => {
+interface LoginProps {
+    setUser: React.Dispatch<React.SetStateAction<string>>;
+  }
+  
+  const Login: React.FC<LoginProps> = ({ setUser }) => {
     const history = useNavigate();
     const userRef = useRef<HTMLInputElement>(null);
 
@@ -14,6 +18,7 @@ const Login = () => {
 
     const handleSubmit = async (e: SyntheticEvent) => {
         e.preventDefault();
+        setUser(userRef.current!.value);
         history('/Store')
     };
 
@@ -33,7 +38,7 @@ const Login = () => {
                                     id="username"
                                     ref={userRef}
                                     autoComplete="off"
-                                    
+
                                     required
                                 />
                                 <label htmlFor="password" className="m-2">
