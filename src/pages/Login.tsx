@@ -1,4 +1,4 @@
-import React, {SyntheticEvent, useState, useRef, useEffect } from 'react';
+import {SyntheticEvent, useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container, Card } from 'react-bootstrap';
 
@@ -7,7 +7,6 @@ const Login = () => {
     const userRef = useRef<HTMLInputElement>(null);
     const [user, setUser] = useState('');
     const [pwd, setPwd] = useState('');
-    const [errMsg, setErrMsg] = useState('');
 
     useEffect(() => {
         if (userRef.current) {
@@ -22,7 +21,6 @@ const Login = () => {
 
     return (
         <section>
-            <p className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
             <Container className="d-flex justify-content-center align-items-center p-3" style={{ width: '100%', backgroundColor: '#E3F5F8' }}>
                 <Card className="p-4" style={{ width: '100%', maxWidth: '500px' }}>
                     <Card.Body>
