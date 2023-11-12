@@ -5,7 +5,7 @@ import { About } from './pages/About'
 import { Navbar }from './components/Navbar'
 import { ShoppingCartProvider } from "./context/ShoppingCartContext"
 import { Register } from './pages/Register'
-
+import Login from './pages/Login'
 function App() {
   return (
     <ShoppingCartProvider>
@@ -15,6 +15,7 @@ function App() {
         <Route path="/store" element ={<Store />} />
         <Route path="/" element ={<Register />} />
         <Route path="/about" element ={<About />} />
+        <Route path="login" element ={<Login />} />
       </Routes>
     </Container>
     </ShoppingCartProvider>

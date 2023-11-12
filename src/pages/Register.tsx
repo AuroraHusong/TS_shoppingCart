@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfoCircle, faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { useRef, useState, useEffect, SyntheticEvent } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Container, Card } from 'react-bootstrap'
 
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{6,22}$/;
@@ -170,7 +170,7 @@ export function Register(){
             <p>
                 Already registered?<br />
                 <span className="line">
-                    <a href="#">Sign In</a>
+                <Link to="/login">Sign In</Link>
                 </span>
             </p>
             </Card.Body>
